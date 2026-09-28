@@ -1,26 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <meta
-    name="description"
-    content="CivicFlow — simple and accessible public-service navigation."
-  />
-
-  <meta name="theme-color" content="#0f766e" />
-
-  <title>CivicFlow — Public services, made simpler</title>
-
-  <link rel="stylesheet" href="./src/styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CivicFlow — simple, accessible public-service navigation.">
+<title>CivicFlow — Public services, made simple</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#102033;--muted:#64748b;--primary:#0f766e;--primary2:#115e59;--line:#e2e8f0;--soft:#ecfdf5;--shadow:0 18px 45px rgba(15,23,42,.08);--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+button,input{font:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:21px;color:var(--text);text-decoration:none}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#0f766e,#14b8a6);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 8px 20px rgba(15,118,110,.25)}
+.navlinks{display:flex;gap:7px}.navlinks button,.nav-actions button{border:0;background:transparent;padding:10px 13px;border-radius:12px;color:#475569;cursor:pointer}.navlinks button:hover,.nav-actions button:hover{background:#f1f5f9;color:var(--primary)}.nav-actions{display:flex;gap:6px;align-items:center}.profile{background:#0f766e!important;color:white!important}
+.hero{padding:72px 0 42px;background:radial-gradient(circle at 85% 10%,#ccfbf1 0,transparent 32%),linear-gradient(180deg,#fff 0,#f5f7fb 100%)}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--soft);color:var(--primary2);font-weight:700;padding:8px 12px;border-radius:999px;font-size:13px}
+h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-2.8px;margin:18px 0}.hero p{font-size:19px;color:var(--muted);max-width:680px}
+.search{margin-top:28px;display:flex;gap:10px;background:white;padding:8px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.search input{border:0;outline:0;flex:1;padding:13px 15px;font-size:16px}.primary{border:0;background:var(--primary);color:white;padding:13px 18px;border-radius:13px;font-weight:750;cursor:pointer}.primary:hover{background:var(--primary2)}
+.hero-card{background:white;border:1px solid var(--line);border-radius:28px;padding:25px;box-shadow:var(--shadow)}.hero-card h3{margin:0 0 15px}.mini{display:flex;gap:12px;align-items:center;padding:13px;border:1px solid var(--line);border-radius:15px;margin:9px 0}.mini-icon{width:40px;height:40px;border-radius:12px;background:#f0fdfa;display:grid;place-items:center;font-size:20px}.mini strong{display:block}.mini span{font-size:12px;color:var(--muted)}
+section{padding:58px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.section-head h2{font-size:31px;letter-spacing:-1px;margin:0}.section-head p{color:var(--muted);margin:6px 0 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:21px;box-shadow:0 8px 25px rgba(15,23,42,.04);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.icon{width:48px;height:48px;border-radius:15px;background:#f0fdfa;display:grid;place-items:center;font-size:23px}.card h3{margin:14px 0 6px}.card p{color:var(--muted);margin:0 0 16px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.tag{font-size:12px;padding:6px 9px;background:#f8fafc;border:1px solid var(--line);border-radius:999px;color:#475569}.linkbtn{border:0;background:transparent;color:var(--primary);font-weight:750;padding:0;cursor:pointer}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:20px}.feature-card{background:#0f172a;color:white;border-radius:28px;padding:32px}.feature-card p{color:#cbd5e1}.check{display:flex;gap:10px;margin:14px 0}.check b{color:#5eead4}
+.tracker{background:white;border:1px solid var(--line);border-radius:24px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.status{display:inline-flex;gap:8px;align-items:center;color:#047857;background:#ecfdf5;padding:8px 11px;border-radius:999px;font-weight:700;font-size:13px}.progress{height:9px;background:#e2e8f0;border-radius:999px;overflow:hidden;margin-top:18px}.bar{height:100%;width:68%;background:linear-gradient(90deg,#0f766e,#2dd4bf);border-radius:999px}
+footer{padding:35px 0;background:#0b1320;color:#cbd5e1}.footer{display:flex;justify-content:space-between;gap:20px}.footer strong{color:white}
+.modal-back{position:fixed;inset:0;background:rgba(2,6,23,.58);display:none;place-items:center;padding:20px;z-index:50}.modal{width:min(650px,100%);max-height:88vh;overflow:auto;background:white;border-radius:25px;padding:27px;box-shadow:0 30px 80px rgba(0,0,0,.3)}.modal-top{display:flex;justify-content:space-between;gap:15px}.close{border:0;background:#f1f5f9;border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:20px}.steps{padding-left:0;list-style:none}.steps li{display:flex;gap:12px;margin:14px 0}.num{min-width:28px;height:28px;border-radius:50%;background:#ccfbf1;color:#115e59;display:grid;place-items:center;font-weight:800}
+.toast{position:fixed;right:20px;bottom:20px;background:#0f172a;color:white;padding:13px 17px;border-radius:13px;display:none;z-index:80}
+.access{display:flex;gap:8px;flex-wrap:wrap}.access button{border:1px solid var(--line);background:white;border-radius:11px;padding:8px 11px;cursor:pointer}
+.large{font-size:18px}.contrast{--bg:#fff;--card:#fff;--text:#000;--muted:#222;--line:#555}
+@media(max-width:850px){.hero-grid,.feature{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero{padding-top:45px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.search{flex-direction:column}.search .primary{width:100%}.footer{flex-direction:column}.hero h1{letter-spacing:-1.8px}}
+</style>
 </head>
-
 <body>
+<header><div class="container nav">
+<a class="brand" href="#"><span class="logo">CF</span>CivicFlow</a>
+<nav class="navlinks">
+<button onclick="go('services')">Services</button><button onclick="go('journey')">How it works</button><button onclick="go('track')">Track</button>
+</nav>
+<div class="nav-actions"><button onclick="toggleLanguage()">🌐 <span id="lang">EN</span></button><button class="profile" onclick="toast('Profile demo — sign-in can be connected later')">Profile</button></div>
+</div></header>
 
-  <div id="root"></div>
+<main>
+<section class="hero"><div class="container hero-grid">
+<div>
+<span class="eyebrow">✨ Public services, made simpler</span>
+<h1>Find the right service. Know your next step.</h1>
+<p>CivicFlow turns confusing public-service processes into clear, accessible journeys — with document checklists, step-by-step guidance and application tracking.</p>
+<div class="search"><input id="search" placeholder="Search a service, e.g. birth certificate..." oninput="searchServices()"><button class="primary" onclick="go('services')">Find a service →</button></div>
+</div>
+<div class="hero-card"><h3>Popular right now</h3>
+<div class="mini" onclick="openService('birth')"><div class="mini-icon">📄</div><div><strong>Birth certificate</strong><span>Documents • Steps • Eligibility</span></div></div>
+<div class="mini" onclick="openService('income')"><div class="mini-icon">🧾</div><div><strong>Income certificate</strong><span>Eligibility • Documents</span></div></div>
+<div class="mini" onclick="openService('pension')"><div class="mini-icon">🤝</div><div><strong>Pension support</strong><span>Benefits • Guidance</span></div></div>
+</div>
+</div></section>
 
-  <script type="module" src="./src/main.js"></script>
+<section id="services"><div class="container">
+<div class="section-head"><div><h2>Explore public services</h2><p>Start with a service and CivicFlow will show the journey.</p></div>
+<div class="access"><button onclick="toggleLarge()">A+ Text</button><button onclick="toggleContrast()">◐ Contrast</button><button onclick="voice()">🎙 Voice</button></div></div>
+<div class="grid" id="serviceGrid"></div>
+</div></section>
 
+<section id="journey"><div class="container">
+<div class="section-head"><div><h2>One clear journey</h2><p>No guessing what to do next.</p></div></div>
+<div class="feature">
+<div class="feature-card"><h2>From question to action</h2><p>CivicFlow breaks a public-service process into small, understandable steps.</p>
+<div class="check"><b>✓</b><span>Understand eligibility</span></div><div class="check"><b>✓</b><span>Prepare the right documents</span></div><div class="check"><b>✓</b><span>Follow application steps</span></div><div class="check"><b>✓</b><span>Track progress</span></div></div>
+<div class="card"><h3>Accessibility built in</h3><p>Use larger text, high contrast and voice input when you need them.</p><h4>Designed for everyone</h4><p>Simple language, clear actions and mobile-friendly layouts help people navigate services with confidence.</p><button class="primary" onclick="toast('Accessibility controls are active above')">Try accessibility</button></div>
+</div></div></section>
+
+<section id="track"><div class="container">
+<div class="section-head"><div><h2>Application tracking</h2><p>A simple view of where your application stands.</p></div></div>
+<div class="tracker"><div><span class="status">● In progress</span><h3 style="margin:13px 0 4px">Income Certificate</h3><div style="color:#64748b">Reference: CF-2026-1042</div><div class="progress"><div class="bar"></div></div><div style="display:flex;justify-content:space-between;font-size:12px;color:#64748b;margin-top:8px"><span>Submitted</span><span>Verification</span><span>Completed</span></div></div><button class="primary" onclick="toast('Tracking demo opened')">View details</button></div>
+</div></section>
+</main>
+
+<footer><div class="container footer"><div><strong>CivicFlow</strong><br><span>AI-powered public-service navigation prototype.</span></div><div>Built for Hack With Hyderabad 3.0 • Demo prototype</div></div></footer>
+
+<div class="modal-back" id="modalBack" onclick="if(event.target===this)closeModal()"><div class="modal" id="modal"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const services=[
+{id:'birth',icon:'📄',title:'Birth Certificate',cat:'Certificates',desc:'Understand the typical journey for requesting a birth certificate.',tags:['Documents','Online option','Step-by-step'],steps:['Check the official local authority requirements','Prepare identity and supporting documents','Submit the request through the appropriate channel','Track acknowledgement or application status']},
+{id:'income',icon:'🧾',title:'Income Certificate',cat:'Certificates',desc:'Find the information you need before starting an income-certificate request.',tags:['Eligibility','Documents','Checklist'],steps:['Check eligibility and issuing authority','Collect income and identity documents','Submit the application','Save the acknowledgement and track status']},
+{id:'pension',icon:'🤝',title:'Pension Support',cat:'Benefits',desc:'Get a guided checklist for exploring pension or social-support services.',tags:['Benefits','Eligibility','Help'],steps:['Choose the relevant scheme','Check eligibility','Prepare documents','Apply through the appropriate channel']},
+{id:'ration',icon:'🛒',title:'Ration Card Services',cat:'Essential services',desc:'Explore a simple flow for new applications, updates or corrections.',tags:['Family','Documents','Application'],steps:['Select the required ration-card service','Check household eligibility','Prepare supporting documents','Submit and track the request']},
+{id:'grievance',icon:'📣',title:'Public Grievance',cat:'Support',desc:'Understand how to record a complaint and keep track of its progress.',tags:['Complaint','Tracking','Support'],steps:['Describe the issue clearly','Attach supporting information if required','Submit the grievance','Save the reference number and monitor updates']},
+{id:'licence',icon:'🚗',title:'Driving Licence Help',cat:'Transport',desc:'Break a driving-licence journey into understandable preparation steps.',tags:['Transport','Appointments','Documents'],steps:['Identify the licence service you need','Check age and eligibility rules','Prepare documents','Complete the required online or in-person steps']}
+];
+
+function render(list=services){
+const grid=document.getElementById('serviceGrid');
+grid.innerHTML=list.length?list.map(s=>`<article class="card"><div class="icon">${s.icon}</div><div style="color:#64748b;font-size:12px;font-weight:700;margin-top:12px">${s.cat}</div><h3>${s.title}</h3><p>${s.desc}</p><div class="tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div><button class="linkbtn" onclick="openService('${s.id}')">View guided steps →</button></article>`).join(''):`<div class="card"><h3>No service found</h3><p>Try “certificate”, “pension”, “ration” or “licence”.</p></div>`;
+}
+function openService(id){const s=services.find(x=>x.id===id);document.getElementById('modal').innerHTML=`<div class="modal-top"><div><div class="eyebrow">${s.icon} ${s.cat}</div><h2>${s.title}</h2><p style="color:#64748b">${s.desc}</p></div><button class="close" onclick="closeModal()">×</button></div><h3>Guided journey</h3><ol class="steps">${s.steps.map((x,i)=>`<li><span class="num">${i+1}</span><span>${x}</span></li>`).join('')}</ol><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:15px;padding:15px;margin-top:18px"><strong>Prototype note</strong><div style="color:#64748b;font-size:14px;margin-top:4px">CivicFlow helps explain the journey. Always verify final requirements with the relevant official authority.</div></div><button class="primary" style="margin-top:18px" onclick="toast('Journey started');closeModal()">Start this journey</button>`;document.getElementById('modalBack').style.display='grid'}
+function closeModal(){document.getElementById('modalBack').style.display='none'}
+function searchServices(){const q=document.getElementById('search').value.toLowerCase().trim();render(services.filter(s=>(s.title+' '+s.cat+' '+s.desc+' '+s.tags.join(' ')).toLowerCase().includes(q)))}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.tt);window.tt=setTimeout(()=>t.style.display='none',2500)}
+function toggleLarge(){document.body.classList.toggle('large');toast('Text size changed')}
+function toggleContrast(){document.body.classList.toggle('contrast');toast('Contrast mode changed')}
+function toggleLanguage(){const l=document.getElementById('lang');l.textContent=l.textContent==='EN'?'HI':'EN';toast(l.textContent==='HI'?'Hindi mode demo':'English mode')}
+function voice(){if(!('webkitSpeechRecognition'in window||'SpeechRecognition'in window)){toast('Voice input is not supported in this browser');return}const R=window.SpeechRecognition||window.webkitSpeechRecognition;const r=new R();r.lang='en-IN';r.onresult=e=>{document.getElementById('search').value=e.results[0][0].transcript;searchServices()};r.start();toast('Listening… say a service name')}
+render();
+</script>
 </body>
 </html>
