@@ -24,7 +24,9 @@ CivicFlow converts complicated public-service processes into a simple step-by-st
 Problem → Research → Personas → User Journey → Information Architecture → Wireframes → Design System → Prototype → AI → Accessibility → Frontend → Testing
 
 ## Project Status
-🚧 UX research and design in progress.
+✅ Interactive frontend prototype created.
+
+The current prototype is a frontend-only demo with sample service data. It does not connect to live government systems or submit real applications.
 
 ## Structure
-See the `docs/`, `design/`, `src/`, `ai/`, and `screenshots/` folders for the project workflow.
+See the `docs/`, `design/`, `src/`, `ai/`, and `screenshots/` folders for the project workflow. The deployable frontend entry point is `index.html`, with app logic in `src/main.js` and styles in `src/styles.css`.
